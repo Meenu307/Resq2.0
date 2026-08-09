@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AssistantRouteImport } from './routes/assistant'
 import { Route as CardRouteImport } from './routes/card'
+import { Route as ContactsRouteImport } from './routes/contacts'
 import { Route as EmergencyRouteImport } from './routes/emergency'
 import { Route as FindHelpRouteImport } from './routes/find-help'
 
@@ -30,6 +31,11 @@ const CardRoute = CardRouteImport.update({
   path: '/card',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactsRoute = ContactsRouteImport.update({
+  id: '/contacts',
+  path: '/contacts',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EmergencyRoute = EmergencyRouteImport.update({
   id: '/emergency',
   path: '/emergency',
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/assistant': typeof AssistantRoute
   '/card': typeof CardRoute
+  '/contacts': typeof ContactsRoute
   '/emergency': typeof EmergencyRoute
   '/find-help': typeof FindHelpRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/assistant': typeof AssistantRoute
   '/card': typeof CardRoute
+  '/contacts': typeof ContactsRoute
   '/emergency': typeof EmergencyRoute
   '/find-help': typeof FindHelpRoute
 }
@@ -60,21 +68,31 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/assistant': typeof AssistantRoute
   '/card': typeof CardRoute
+  '/contacts': typeof ContactsRoute
   '/emergency': typeof EmergencyRoute
   '/find-help': typeof FindHelpRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/assistant' | '/card' | '/emergency' | '/find-help'
+  fullPaths:
+    '/' | '/assistant' | '/card' | '/contacts' | '/emergency' | '/find-help'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/assistant' | '/card' | '/emergency' | '/find-help'
-  id: '__root__' | '/' | '/assistant' | '/card' | '/emergency' | '/find-help'
+  to: '/' | '/assistant' | '/card' | '/contacts' | '/emergency' | '/find-help'
+  id:
+    | '__root__'
+    | '/'
+    | '/assistant'
+    | '/card'
+    | '/contacts'
+    | '/emergency'
+    | '/find-help'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AssistantRoute: typeof AssistantRoute
   CardRoute: typeof CardRoute
+  ContactsRoute: typeof ContactsRoute
   EmergencyRoute: typeof EmergencyRoute
   FindHelpRoute: typeof FindHelpRoute
 }
@@ -102,6 +120,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contacts': {
+      id: '/contacts'
+      path: '/contacts'
+      fullPath: '/contacts'
+      preLoaderRoute: typeof ContactsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/emergency': {
       id: '/emergency'
       path: '/emergency'
@@ -123,6 +148,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AssistantRoute: AssistantRoute,
   CardRoute: CardRoute,
+  ContactsRoute: ContactsRoute,
   EmergencyRoute: EmergencyRoute,
   FindHelpRoute: FindHelpRoute,
 }
