@@ -15,6 +15,7 @@ import { Route as CardRouteImport } from './routes/card'
 import { Route as ContactsRouteImport } from './routes/contacts'
 import { Route as EmergencyRouteImport } from './routes/emergency'
 import { Route as FindHelpRouteImport } from './routes/find-help'
+import { Route as ReportsRouteImport } from './routes/reports'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -46,6 +47,11 @@ const FindHelpRoute = FindHelpRouteImport.update({
   path: '/find-help',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/contacts': typeof ContactsRoute
   '/emergency': typeof EmergencyRoute
   '/find-help': typeof FindHelpRoute
+  '/reports': typeof ReportsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/contacts': typeof ContactsRoute
   '/emergency': typeof EmergencyRoute
   '/find-help': typeof FindHelpRoute
+  '/reports': typeof ReportsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,13 +79,27 @@ export interface FileRoutesById {
   '/contacts': typeof ContactsRoute
   '/emergency': typeof EmergencyRoute
   '/find-help': typeof FindHelpRoute
+  '/reports': typeof ReportsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/assistant' | '/card' | '/contacts' | '/emergency' | '/find-help'
+    | '/'
+    | '/assistant'
+    | '/card'
+    | '/contacts'
+    | '/emergency'
+    | '/find-help'
+    | '/reports'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/assistant' | '/card' | '/contacts' | '/emergency' | '/find-help'
+  to:
+    | '/'
+    | '/assistant'
+    | '/card'
+    | '/contacts'
+    | '/emergency'
+    | '/find-help'
+    | '/reports'
   id:
     | '__root__'
     | '/'
@@ -86,6 +108,7 @@ export interface FileRouteTypes {
     | '/contacts'
     | '/emergency'
     | '/find-help'
+    | '/reports'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -95,6 +118,7 @@ export interface RootRouteChildren {
   ContactsRoute: typeof ContactsRoute
   EmergencyRoute: typeof EmergencyRoute
   FindHelpRoute: typeof FindHelpRoute
+  ReportsRoute: typeof ReportsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -141,6 +165,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FindHelpRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -151,6 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactsRoute: ContactsRoute,
   EmergencyRoute: EmergencyRoute,
   FindHelpRoute: FindHelpRoute,
+  ReportsRoute: ReportsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
