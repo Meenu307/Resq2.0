@@ -61,7 +61,7 @@ export async function findNearbyFacilities(
         if (!Number.isFinite(lat) || !Number.isFinite(lng)) continue;
         results.push({
           id: `${category}-${lat}-${lng}`,
-          name: (item.name || item.display_name || meta.label).split(",")[0],
+          name: (item.name || item.display_name || meta.label).split(",")[0] ?? meta.label,
           category,
           icon: meta.icon,
           phone: meta.phone,
