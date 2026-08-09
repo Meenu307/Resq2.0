@@ -15,7 +15,7 @@ import { readContactsSync, readProfileSync, saveReport, type TrustedContact } fr
 
 export const Route = createFileRoute("/emergency")({
   validateSearch: (search: Record<string, unknown>) => ({
-    type: typeof search.type === "string" ? search.type : undefined,
+    type: typeof search["type"] === "string" ? (search["type"] as string) : undefined,
   }),
   head: () => ({
     meta: [
