@@ -77,20 +77,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "RESQ — From Panic to Action" },
+      { title: "RESQ — Emergency Assistance, From Panic to Action" },
       {
         name: "description",
         content:
-          "RESQ is an emergency-response assistance platform: identify the emergency, follow concise guidance, share your location and generate a responder brief.",
+          "RESQ guides you through an emergency: identify what happened, get concise steps, share your location, find nearby help and generate a responder brief.",
       },
       { name: "theme-color", content: "#141a24" },
-      { property: "og:title", content: "RESQ — From Panic to Action" },
+      { property: "og:title", content: "RESQ — Emergency Assistance, From Panic to Action" },
       {
         property: "og:description",
-        content: "An emergency-response assistance platform that turns panic into a structured response.",
+        content: "RESQ guides you through an emergency: identify what happened, get concise steps, share your location, find nearby help and generate a responder brief.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "RESQ — Emergency Assistance, From Panic to Action" },
+      { name: "twitter:description", content: "RESQ guides you through an emergency: identify what happened, get concise steps, share your location, find nearby help and generate a responder brief." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/03712c54369f2c13ce10d4c61fab3755/id-preview-81c7d631--ad427a06-24d9-4b61-bd61-b6a49d118ff5.lovable.app-1786273882280.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/03712c54369f2c13ce10d4c61fab3755/id-preview-81c7d631--ad427a06-24d9-4b61-bd61-b6a49d118ff5.lovable.app-1786273882280.png" },
     ],
     links: [
       {

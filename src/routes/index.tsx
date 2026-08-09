@@ -11,11 +11,11 @@ export const Route = createFileRoute("/")({
         content:
           "RESQ guides you through an emergency: identify what happened, get concise steps, share your location, find nearby help and generate a responder brief.",
       },
-      { property: "og:title", content: "RESQ — From Panic to Action" },
+      { property: "og:title", content: "RESQ — Emergency Assistance, From Panic to Action" },
       {
         property: "og:description",
         content:
-          "An emergency-response assistance platform: identify, guide, locate, communicate, connect.",
+          "RESQ guides you through an emergency: identify what happened, get concise steps, share your location, find nearby help and generate a responder brief.",
       },
     ],
   }),
